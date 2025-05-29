@@ -21,7 +21,8 @@ def generate_key():
 # Проверка ключа (передается в URL)
 @app.route('/api/check/<string:key>', methods=['GET'])
 def check_key(key):
-    if key in api_keys and key.startswith("Atlant_hub"):
+    # Проверяем, что ключ есть в api_keys и начинается с "KeyGls"
+    if key in api_keys and key.startswith("KeyGls"):
         return jsonify({"status": "valid"})
     else:
         return jsonify({"status": "invalid"}), 401
